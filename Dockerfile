@@ -20,4 +20,5 @@ COPY --from=builder /go/bin/eth2-testnet-genesis /usr/local/bin/eth2-testnet-gen
 COPY --from=builder /go/bin/eth2-val-tools /usr/local/bin/eth2-val-tools
 COPY config-example /config
 COPY entrypoint.sh .
+RUN chmod +x /work/entrypoint.sh
 ENTRYPOINT [ "/work/entrypoint.sh" ]
