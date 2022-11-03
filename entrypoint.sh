@@ -84,5 +84,14 @@ case $1 in
     ;;
 esac
 
+chmod 777 -R /data
+
 # Start webserver
-cd /data && exec python -m SimpleHTTPServer "$SERVER_PORT"
+case $2 in
+  noserver)
+    exit 1
+    ;;
+  *)
+    cd /data && exec python -m SimpleHTTPServer "$SERVER_PORT"
+    ;;
+esac  
